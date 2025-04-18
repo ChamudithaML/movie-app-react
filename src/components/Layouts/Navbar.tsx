@@ -1,11 +1,19 @@
 import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="w-full px-6 py-4 bg-gray-900 text-white flex items-center justify-between">
       <div className="flex items-center space-x-6 text-lg font-medium">
-        <a href="#" className="hover:text-gray-300">Movies</a>
-        <a href="#" className="hover:text-gray-300">TV Series</a>
+      <Link to="/" className="hover:text-gray-300">
+          ChaDB
+        </Link>
+        <Link to="/movies" className="hover:text-gray-300">
+          Movies
+        </Link>
+        <Link to="/tv-series" className="hover:text-gray-300">
+          TV Series
+        </Link>
       </div>
 
       <div className="relative w-1/3">
