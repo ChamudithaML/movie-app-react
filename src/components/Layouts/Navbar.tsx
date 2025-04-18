@@ -1,10 +1,9 @@
 import { Search } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import MiniMovieThread from "../MiniMovieThread";
 
-// Define the Movie type
 interface Movie {
   id: number;
   title: string;
@@ -15,6 +14,7 @@ function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<Movie[]>([]); 
   const [isLoading, setIsLoading] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
@@ -25,6 +25,22 @@ function Navbar() {
 
     return () => clearTimeout(delayDebounceFn);
   }, [searchQuery]);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        
+        setSearchQuery("");
+        setSearchResults([]);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const fetchSearchResults = async () => {
     setIsLoading(true);
@@ -59,7 +75,7 @@ function Navbar() {
         </Link>
       </div>
 
-      <div className="relative w-1/3">
+      <div className="relative w-1/3" ref={searchContainerRef}>
         <input
           type="text"
           placeholder="Search..."
@@ -70,7 +86,7 @@ function Navbar() {
         <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
 
         {searchQuery && (
-          <div className="absolute w-full bg-gray-800 text-white rounded-b-xl mt-2">
+          <div className="absolute w-full bg-gray-800 text-white rounded-b-xl mt-2 z-50">
             {isLoading ? (
               <div className="p-2">Loading...</div>
             ) : (
