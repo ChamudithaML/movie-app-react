@@ -1,10 +1,13 @@
 import './App.css'
+import Navbar from './components/Layouts/Navbar'
+import LandingWrapper from './components/Pages/LandingPage/LandingWrapper'
 
 function App() {
 
   return (
     <>
-     <div>hi</div>
+     <Navbar></Navbar>
+     <LandingWrapper></LandingWrapper>
     </>
   )
 }
