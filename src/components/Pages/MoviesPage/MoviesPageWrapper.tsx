@@ -39,7 +39,7 @@ function MoviesPageWrapper() {
 
   return (
     <div className="p-6">
-      <h1>Movies</h1>
+      <h1 className="text-4xl font-bold text-gray-900 mb-6">Movies</h1>
       {movies.map((movie) => (
         <MovieThread
           key={movie.id}
