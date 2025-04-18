@@ -10,7 +10,6 @@ import {
   function Footer() {
     return (
       <footer className="w-full bg-zinc-900 text-white py-10 px-6 flex justify-between flex-wrap gap-8">
-        {/* Left Side */}
         <div className="flex gap-16">
           <div className="flex flex-col gap-2 text-sm">
             <span>Help</span>
@@ -30,9 +29,7 @@ import {
           </div>
         </div>
   
-        {/* Right Side */}
         <div className="flex flex-col items-end gap-6 flex-grow sm:flex-grow-0">
-          {/* Top Nav */}
           <div className="flex flex-wrap justify-end gap-4 text-sm">
             <span>About</span>
             <span>Pro</span>
@@ -47,7 +44,6 @@ import {
             <span>Contact</span>
           </div>
   
-          {/* Social Icons */}
           <div className="flex gap-4">
             <Facebook className="w-5 h-5 hover:text-blue-500 cursor-pointer" />
             <Twitter className="w-5 h-5 hover:text-sky-400 cursor-pointer" />

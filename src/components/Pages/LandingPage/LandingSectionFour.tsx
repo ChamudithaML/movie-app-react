@@ -39,7 +39,6 @@ function LandingSectionFour() {
   const getImageUrl = (path: string) =>
     `https://image.tmdb.org/t/p/w300${path}`;
 
-  // Split people into groups of 6
   const groups = [
     people.slice(0, 6),
     people.slice(6, 12),
@@ -67,7 +66,6 @@ function LandingSectionFour() {
         ))}
       </div>
 
-      {/* Dot navigation */}
       <div className="flex justify-center gap-4">
         {groups.map((_, index) => (
           <button

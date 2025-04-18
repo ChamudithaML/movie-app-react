@@ -25,7 +25,7 @@ function LandingSectionTwo() {
             },
           }
         );
-        const topTrending = res.data.results.slice(0, 10); // Get top 10 trending movies
+        const topTrending = res.data.results.slice(0, 10); 
         setMovies(topTrending);
       } catch (err) {
         console.error("Failed to fetch trending movies:", err);
@@ -35,21 +35,18 @@ function LandingSectionTwo() {
     fetchTrendingMovies();
   }, []);
 
-  // Function to move to the next set of movies
   const nextMovies = () => {
     if (currentIndex < movies.length - 4) {
       setCurrentIndex(currentIndex + 1);
     }
   };
 
-  // Function to move to the previous set of movies
   const prevMovies = () => {
     if (currentIndex > 0) {
       setCurrentIndex(currentIndex - 1);
     }
   };
 
-  // Get 4 movies for the current view
   const displayedMovies = movies.slice(currentIndex, currentIndex + 4);
 
   return (
@@ -58,9 +55,8 @@ function LandingSectionTwo() {
         <h2 className="text-2xl font-bold">Trending Movies</h2>
       </div>
 
-      {/* Movie Images and Arrow Buttons */}
       <div className="flex gap-4 overflow-x-auto relative">
-        {/* Left Arrow */}
+        
         <button
           onClick={prevMovies}
           disabled={currentIndex === 0}
@@ -69,7 +65,6 @@ function LandingSectionTwo() {
           &#8592;
         </button>
 
-        {/* Display Movies */}
         {displayedMovies.map((movie) => (
           <div
             key={movie.id}
@@ -83,7 +78,6 @@ function LandingSectionTwo() {
           </div>
         ))}
 
-        {/* Right Arrow */}
         <button
           onClick={nextMovies}
           disabled={currentIndex >= movies.length - 4}

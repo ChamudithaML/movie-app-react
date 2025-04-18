@@ -19,7 +19,6 @@ const MovieThread: React.FC<MovieThreadProps> = ({
 }) => {
   return (
     <div className="flex gap-6 border border-zinc-700 rounded-xl p-4 mb-6 bg-zinc-900 text-white">
-      {/* Movie Poster */}
       <div className="w-40 min-w-40 h-60 overflow-hidden rounded-lg">
         <img
           src={`https://image.tmdb.org/t/p/w500${posterPath}`}
@@ -28,7 +27,6 @@ const MovieThread: React.FC<MovieThreadProps> = ({
         />
       </div>
 
-      {/* Movie Details */}
       <div className="flex flex-col justify-between flex-1">
         <div>
           <h2 className="text-2xl font-semibold">{title}</h2>

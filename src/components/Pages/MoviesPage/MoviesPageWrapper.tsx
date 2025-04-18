@@ -39,6 +39,7 @@ function MoviesPageWrapper() {
 
   return (
     <div className="p-6">
+      <h1>Movies</h1>
       {movies.map((movie) => (
         <MovieThread
           key={movie.id}

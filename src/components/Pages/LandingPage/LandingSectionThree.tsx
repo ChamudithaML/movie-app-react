@@ -56,7 +56,7 @@ function LandingSectionThree() {
       </div>
 
       <div className="flex gap-4 overflow-x-auto relative">
-        {/* Left Arrow */}
+        
         <button
           onClick={prevMovies}
           disabled={currentIndex === 0}
@@ -64,8 +64,7 @@ function LandingSectionThree() {
         >
           &#8592;
         </button>
-
-        {/* Display 4 Movies */}
+        
         {displayedMovies.map((movie) => (
           <div
             key={movie.id}
@@ -79,7 +78,6 @@ function LandingSectionThree() {
           </div>
         ))}
 
-        {/* Right Arrow */}
         <button
           onClick={nextMovies}
           disabled={currentIndex >= movies.length - 4}
